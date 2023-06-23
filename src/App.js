@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Connexion from './pages/Connexion';
-import Inscription from './pages/Inscription'
-import NavigationBar from './layouts/Navbar';
-import Produits from './pages/Produits';
+import CustomNavbar from './components/CustomNavbar';
+import SideBar from './components/SideBar';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavigationBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/inscription' element={<Inscription />} />
-        <Route path='/connexion' element={<Connexion />} />
-        <Route path='/produits' element={<Produits />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <CustomNavbar/>
+      <SideBar/>
+      <Dashboard/>
+    </div>
   );
 }
 
