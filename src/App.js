@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Connexion from './pages/Connexion';
-import Produits from './pages/Produits';
+import Home from './components/Home';
 
 function App() {
-  const [auth, setAuth] = useState(false)
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Connexion />}/>
-        <Route path='/dashboard' element={<Produits />} />
+        <Route path='/home' element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

@@ -6,7 +6,7 @@ function Connexion({auth}) {
   return (
     <Container>
       <h1 style={{textAlign:'center'}}>Connexion</h1>
-      <ConnexionForm auth={auth} />
+      <ConnexionForm />
     </Container>
   )
 }

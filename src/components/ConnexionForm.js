@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-const ConnexionForm = (props)=> {
+const ConnexionForm = ()=> {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
@@ -9,7 +9,7 @@ const ConnexionForm = (props)=> {
   const validateForm = (e) =>{
     e.preventDefault()
     if(username == "Yvan" && password == 1234){
-      navigate('/dashboard')
+      navigate('/home')
       console.log("ok")
     }
   }

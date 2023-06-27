@@ -185,7 +185,8 @@ function Produits() {
                 <p>Prix: {state.selectedProduct.price}$</p>
                 <p>Description: {state.selectedProduct.description}</p>
                 <p>Catégorie: {state.selectedProduct.category}</p>
-                <p>Notes: {state.selectedProduct.rate}</p>
+                <p>Notes: {state.selectedProduct.rating}</p>
+                <p>En stock: {state.selectedProduct.stock}</p>
                 {/* <div>
                     <h5>Images:</h5>
                     {state.selectedProduct.images.map((image, index) => (
