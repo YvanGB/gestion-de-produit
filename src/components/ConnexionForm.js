@@ -1,22 +1,39 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React, { useState, useEffect } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const ConnexionForm = ()=> {
+const ConnexionForm = (props)=> {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate()
+
+  const validateForm = (e) =>{
+    e.preventDefault()
+    if(username == "Yvan" && password == 1234){
+      navigate('/produits')
+      console.log("ok")
+    }
+  }
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Entrez un email valide" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Mot de passe</Form.Label>
-        <Form.Control type="password" placeholder="Mot de passe" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-md-6'>
+          <form onSubmit={validateForm}>
+              <div className="form-group">
+                <label htmlFor="username">Nom d'utilisateur</label>
+                <input type='text' className="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" onChange={(e)=>setUsername(e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label htmlFor="loginPassword">Mot de passe</label>
+                <input type="password" className="form-control" id="loginPassword" placeholder="Entrer votre mot de passe" onChange={(e)=>setPassword(e.target.value)} required />
+              </div>
+              {/* <button type="submit" className="btn btn-primary">Se connecter</button> */}
+              <input type='submit' className='btn btn-primary' value="Se connecter" />
+          </form>
+          {/* <p>Vous n'avez pas de compte ? <a href='/inscription'>S'inscrire</a></p> */}
+        </div>
+      </div>
+      
+    </div>
   );
 }
 

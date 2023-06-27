@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+/* Centrer le modal verticalement */
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+}
+
+/* Centrer le contenu du modal horizontalement */
+.modal-content {
+  margin: auto;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
