@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Table } from 'react-bootstrap';
 
-const ProductList = ({ products, onViewDetails, onEdit, onDelete }) => {
+const ProductList = ({ produits, onViewDetails, onEdit, onDelete }) => {
   return (
     <Table striped bordered hover>
       <thead>
@@ -12,7 +12,7 @@ const ProductList = ({ products, onViewDetails, onEdit, onDelete }) => {
         </tr>
       </thead>
       <tbody>
-        {products.map((product) => (
+        {produits.map((product) => (
           <tr key={product.id}>
             <td>{product.name}</td>
             <td>{product.price}</td>

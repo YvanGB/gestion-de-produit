@@ -9,7 +9,7 @@ const ConnexionForm = (props)=> {
   const validateForm = (e) =>{
     e.preventDefault()
     if(username == "Yvan" && password == 1234){
-      navigate('/produits')
+      navigate('/dashboard')
       console.log("ok")
     }
   }

@@ -15,22 +15,32 @@ const Demo = () => {
     error:''
 })
 
+// const useFetchProducts = async () => {
+//   axios.get("http://localhost:5000/products")
+//       .then(res =>{
+//           const resultats = res.data;
+//           setState({
+//               ...state,
+//               isLoading:false,
+//               produits:resultats,
+//           })
+//           localStorage.setItem('produits', JSON.stringify(state.produits))
+//       }).catch(err => setState({...state ,error:err}))
+// }
+
   useEffect(() => {
-    useFetchProducts();
+    axios.get("http://localhost:5000/products")
+      .then(res =>{
+          const resultats = res.data;
+          setState({
+              ...state,
+              isLoading:false,
+              produits:resultats,
+          })
+          localStorage.setItem('produits', JSON.stringify(state.produits))
+      }).catch(err => setState({...state ,error:err}))
   }, []);
 
-  const useFetchProducts = async () => {
-    axios.get("http://localhost:5000/products")
-        .then(res =>{
-            const resultats = res.data;
-            setState({
-                ...state,
-                isLoading:false,
-                produits:resultats,
-            })
-            localStorage.setItem('produits', JSON.stringify(state.produits))
-        }).catch(err => setState({...state ,error:err}))
-  };
 
   const handleViewDetails = (productId) => {
     const produit = state.produits.find((p) => p.id === productId);
@@ -50,7 +60,7 @@ const Demo = () => {
   const handleSubmit = async (productData) => {
     try {
       const response = await axios.post('http://localhost:5000/products', productData);
-      setProducts([...products, response.data]);
+      setState({...state, produits: response.data});
     } catch (error) {
       console.error('Error creating product:', error);
     }
