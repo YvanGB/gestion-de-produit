@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
 import axios from 'axios';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import ProductForm from './components/ProductForm';
 import './App.css';
 import CustomNavbar from './components/CustomNavbar';
-import SideBar from './components/SideBar';
-import Dashboard from './components/Dashboard';
+import FunctionCard from './components/FunctionCard';
+import { Row } from 'react-bootstrap';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -51,14 +52,18 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className='container-fluid'>
       <CustomNavbar />
-      <SideBar />
-      <Dashboard />
+
+      {/* <Row className="justify-content-center align-items-center">
+        <FunctionCard title="Statistique 1" description="Donnée statistique 1"/>
+        <FunctionCard title="Statistique 2" description="Donnée statistique 2"/>
+        <FunctionCard title="Statistique 3" description="Donnée statistique 3"/>
+        <FunctionCard title="Statistique 4" description="Donnée statistique 4"/>
+      </Row> */}
 
 
-
-      <Container>
+      {/* <Container>
         <Row>
           <Col md={6}>
             <h2>Liste des produits</h2>
@@ -84,7 +89,7 @@ const App = () => {
             <ProductForm onSubmit={handleSubmit} />
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </div>
 
 
