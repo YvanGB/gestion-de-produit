@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function AjouterProduit() {
+
+    const navigate = useNavigate();
 
     const [state, setState] = useState({
         title:'',
@@ -9,9 +13,39 @@ function AjouterProduit() {
         categorie:''
     })
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const nouveauProduit = {
+          title: state.title,
+          price: state.prix,
+          description: state.description,
+          category: state.categorie
+        };
+    
+        axios.post('http://localhost:5000/products', nouveauProduit)
+          .then(response => {
+            console.log(response.data);
+            setState({
+              nom: '',
+              prix: '',
+              description: '',
+              categorie:''
+            });
+
+            navigate('/home');
+          })
+          .catch(error => {
+            // Gérer les erreurs de la requête
+            console.error(error);
+          });
+      };
+    
+
     useEffect(()=>{
         console.log(state)
     },[state])
+
 
   return (
     <div className="container">
@@ -38,7 +72,7 @@ function AjouterProduit() {
                 <option value="Skincare">Skincare</option>
             </select>
         </div>
-        <button type="submit" className="btn btn-primary">Ajouter</button>
+        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Ajouter</button>
     </form>
 </div>
   )

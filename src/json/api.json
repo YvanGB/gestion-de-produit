@@ -529,6 +529,13 @@
         "https://i.dummyjson.com/data/products/29/4.webp",
         "https://i.dummyjson.com/data/products/29/thumbnail.webp"
       ]
+    },
+    {
+      "title": "Macbook Air 2022",
+      "price": "2100",
+      "description": "MacBook",
+      "category": "Laptops",
+      "id": 30
     }
   ]
 }

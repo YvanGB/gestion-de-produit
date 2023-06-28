@@ -15,8 +15,9 @@ const ConnexionForm = ()=> {
   }
   return (
     <div className='container'>
+      <h1 style={{textAlign:'center'}}>Connexion</h1>
       <div className='row'>
-        <div className='col-md-6'>
+        <div className='col-md-6 d-flex justify-content-center align-items-center'>
           <form onSubmit={validateForm}>
               <div className="form-group">
                 <label htmlFor="username">Nom d'utilisateur</label>
