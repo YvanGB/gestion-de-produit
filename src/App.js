@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Connexion from './pages/Connexion';
-import Inscription from './pages/Inscription'
-import NavigationBar from './layouts/Navbar';
-import Produits from './pages/Produits';
+import Home from './components/Home';
+import AjouterProduit from './pages/AjouterProduit';
 
 function App() {
+
   return (
+    // <Container>
+    //   <Row>
+    //     <Col md={6}>
+    //       <h2>Liste des produits</h2>
+    //       <ProductList
+    //         products={products}
+    //         onViewDetails={handleViewDetails}
+    //         onEdit={handleEdit}
+    //         onDelete={handleDelete}
+    //       />
+    //     </Col>
+    //     <Col md={6}>
+    //       <h2>Détails du produit</h2>
+    //       {selectedProduct ? (
+    //         <ProductDetails product={selectedProduct} />
+    //       ) : (
+    //         <p>Sélectionnez un produit pour voir les détails.</p>
+    //       )}
+    //     </Col>
+    //   </Row>
+    //   <Row>
+    //     <Col>
+    //       <h2>Ajouter un produit</h2>
+    //       <ProductForm onSubmit={handleSubmit} />
+    //     </Col>
+    //   </Row>
+    // </Container>
     <BrowserRouter>
-      <NavigationBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/inscription' element={<Inscription />} />
-        <Route path='/connexion' element={<Connexion />} />
-        <Route path='/produits' element={<Produits />} />
+        <Route path='/' element={<Connexion />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/ajouterproduit' element={<AjouterProduit />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
-export default App;
+export default App
